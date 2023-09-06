@@ -6,9 +6,9 @@
     height: 5vh;
     background-color: rgb(200,200,200);
     div {
-        width: 20%;
+        width: 30%;
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         align-items: end;
     }
 }

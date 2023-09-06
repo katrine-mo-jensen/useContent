@@ -20,7 +20,8 @@ export const Navigation = () => {
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
                 <Link to="/blog">Blog</Link>
-                <Link to="/login">login</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/userposts">Posts</Link>
             </div>
         </nav>
     )
