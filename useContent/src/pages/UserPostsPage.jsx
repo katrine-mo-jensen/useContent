@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
 
 export const UserPostsPage = () => {
   const { user } = useContext(UserContext);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
@@ -12,7 +15,12 @@ export const UserPostsPage = () => {
       console.log("User er logget ind");
     } else {
       console.log("User er ikke logget ind");
-      setErrorMsg("Du skal være logget ind, for at kunne se posts");
+      setErrorMsg("Du skal være logget ind, for at kunne se posts. Du vil blive viderestillet til login");
+
+      let timeOut = setTimeout(() => {
+        navigate("/login");
+      }, 5000);
+      return () => clearTimeout(timeOut);
     }
   }, []);
 

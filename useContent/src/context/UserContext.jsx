@@ -6,7 +6,7 @@ export const UserContextProvider = ({children}) => {
     const [user, setUser] = useState(null)
 
     useEffect(()  => {
-        console.log("use has changed - yay", user)
+        console.log("user has changed - yay", user)
     }, [user])
 
     return (
