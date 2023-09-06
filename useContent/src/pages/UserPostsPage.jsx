@@ -50,7 +50,7 @@ export const UserPostsPage = () => {
 
   return (
     <section>
-      <h3>posts</h3>
+      <h3>Posts</h3>
       <h4>{errorMsg}</h4>
       {userPosts?.posts.map((item) => {
         return (
