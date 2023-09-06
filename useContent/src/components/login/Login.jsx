@@ -1,5 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { LoginForm } from "../login/LoginForm";
+
+/** TEST USER
+     *"username": "rshawe2",
+      "password": "OWsTbMUgFc",
+     */
 
 export const Login = () => {
   const { setUser, user } = useContext(UserContext);
@@ -23,37 +29,26 @@ export const Login = () => {
 
       fetch(url, options)
         .then((res) => res.json())
-        // .then((data) => console.log(data))
-        .then((data) => setUser(data));
-
-      // .then((err) => console.error(err));
+        .then((data) => setUser(data))
+        .catch((err) => console.error(err));
     } else {
-      alert("du skal udfylde felterne fær du sender!");
+      alert("Du skal udfylde felterne før du sender");
     }
 
-    console.log("username:", event.target.username.value);
-    console.log("password:", event.target.password.value);
+    "username:", event.target.username.value;
   };
+
+  const logout = () => {
+    setUser(null)
+    localStorage.removeItem('user')
+  }
 
   if (user?.firstName)
     return (
       <>
-        <h3>Velkommen {user.username} </h3>
-        <button onClick={() => setUser(null)}>Log ud</button>
+        <h3>Velkommen {user?.firstName}</h3>
+        <button onClick={() => logout()}>Log Ud</button>
       </>
     );
-  else
-    return (
-      <form onSubmit={(event) => submitHandler(event)}>
-        <label>
-          Brugernavn:
-          <input name="username" placeholder="indtast brugernavn" />
-        </label>
-        <label>
-          Password:
-          <input name="password" placeholder="intast password" />
-        </label>
-        <input type="submit" value="send" />
-      </form>
-    );
+  else return <LoginForm submitHandler={submitHandler} />;
 };
