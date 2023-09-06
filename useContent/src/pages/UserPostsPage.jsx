@@ -55,7 +55,7 @@ export const UserPostsPage = () => {
       {userPosts?.posts.map((item) => {
         return (
           <div key={item.id}>
-            <p>{item.title}</p>
+            <h4>{item.title}</h4>
             <p>{item.body}</p>
           </div>
         );

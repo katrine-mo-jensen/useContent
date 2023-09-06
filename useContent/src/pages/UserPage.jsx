@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { CountButton } from "../components/CountButton/CountButton";
 import { ContentSection } from "../components/contentSection/ContentSection";
 
-export const BlogPage = () => {
+export const UserPage = () => {
   // Eksempel der viser Mount / unmount logik
   useEffect(() => {
     console.log("Blog Page Component has Mounted");
@@ -12,7 +12,7 @@ export const BlogPage = () => {
   }, []);
 
   return (
-    <ContentSection title="Blog Page">
+    <ContentSection title="User page">
       <h3>Here is the Blog page</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae

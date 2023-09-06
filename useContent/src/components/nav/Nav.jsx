@@ -19,7 +19,7 @@ export const Navigation = () => {
             <div>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
-                <Link to="/blog">Blog</Link>
+                <Link to="/user">User</Link>
                 <Link to="/login">Login</Link>
                 <Link to="/userposts">Posts</Link>
             </div>
