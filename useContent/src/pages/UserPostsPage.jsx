@@ -11,11 +11,26 @@ export const UserPostsPage = () => {
   useEffect(() => {
     if (user) {
       const id = user.id;
+      const token = user.token;
       const url = `https://dummyjson.com/users/${id}/posts`;
       console.log("User er logget ind");
+
+      const options = {
+        metode: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-type": "application/json",
+        },
+      };
+      fetch(url, options)
+        .then((res) => res.json())
+        .then((data) => setUserPosts(data))
+        .catch((err) => console.log(err));
     } else {
       console.log("User er ikke logget ind");
-      setErrorMsg("Du skal være logget ind, for at kunne se posts. Du vil blive viderestillet til login");
+      setErrorMsg(
+        "Du skal være logget ind, for at kunne se posts. Du vil blive viderestillet til login"
+      );
 
       let timeOut = setTimeout(() => {
         navigate("/login");
